@@ -1,0 +1,41 @@
+<app-spinner *ngIf="loading"></app-spinner>
+
+<section *ngIf="!loading">
+  <mat-list *ngFor="let hero of heroes">
+    <mat-list-item
+      class="pathitem"
+      style="height: 50px"
+      fxLayoutAlign="center"
+      fxLayoutGap="10px"
+    >
+      <div
+        fxLayout="row"
+        fxLayoutAlign="space-evenly center"
+        style="min-width: 400px"
+      >
+        <p style="min-width: 200px">
+          <span
+            >{{ hero.id }}. {{ hero.name | uppercase }}
+            {{ hero.birthday }}</span
+          >
+        </p>
+        <button
+          mat-raised-button
+          color="accent"
+          style="margin-left: 10px"
+          (click)="onSelectHero(hero)"
+        >
+          Select
+        </button>
+        <button mat-mini-fab color="warn" (click)="onDelete(hero.id)">
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
+    </mat-list-item>
+    <mat-divider class="background-divider"></mat-divider>
+  </mat-list>
+  <div fxLayoutAlign="center" style="padding-top: 10px">
+    <a mat-fab routerLink="/new"><mat-icon>add</mat-icon></a>
+  </div>
+</section>
+<mat-dialog-content></mat-dialog-content>

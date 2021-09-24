@@ -1,0 +1,31 @@
+$primary-color: #283593;
+$secondary-color: #ff4081;
+$text-color: #f4f4f4;
+$hover-color: #304ffe;
+
+nav {
+  overflow: hidden;
+  background-color: $primary-color;
+
+  a {
+    float: left;
+    display: block;
+    color: $text-color;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+  }
+
+  a.nav-link {
+    float: right;
+  }
+
+  a.nav-link:hover {
+    background-color: $hover-color;
+  }
+}
+
+.active {
+  background-color: $secondary-color;
+}

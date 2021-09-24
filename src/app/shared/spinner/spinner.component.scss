@@ -1,0 +1,57 @@
+@import "../shared.scss";
+
+@mixin side-circle {
+  content: "";
+  display: block;
+  background: $secondary-color;
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+@mixin rotation {
+  animation-name: rotate;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+}
+
+.circle {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: $primary-color;
+  position: absolute;
+  top: 48%;
+  left: 49%;
+  border-radius: 50%;
+
+  &::before {
+    @include side-circle;
+    left: 20px;
+
+    @include rotation;
+    transform-origin: -14px;
+  }
+
+  &::after {
+    @include side-circle;
+    right: 20px;
+
+    @include rotation;
+    transform-origin: 25px;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

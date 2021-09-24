@@ -1,0 +1,45 @@
+<section
+  fxLayout
+  fxLayoutAlign="center"
+  fxLayoutGap="10px"
+  style="margin-top: 20px"
+>
+  <mat-card>
+    <mat-card-title *ngIf="!hero">Create your Hero</mat-card-title>
+    <mat-card-title *ngIf="hero">{{ hero.name }} details!</mat-card-title>
+    <mat-card-content>
+      <p *ngIf="hero">Id: {{ hero.id }}</p>
+      <form
+        fxLayout="column"
+        fxLayoutAlign="center"
+        fxLayoutGap="10px"
+        [formGroup]="heroForm"
+        (ngSubmit)="onSave()"
+      >
+        <mat-form-field>
+          <mat-label>Hero Name</mat-label>
+          <input matInput placeholder="Hero Name" formControlName="heroName" />
+        </mat-form-field>
+        <mat-form-field>
+          <mat-label>Select Power</mat-label>
+          <mat-select formControlName="powers">
+            <mat-option *ngFor="let power of HeroPowers" [value]="power">
+              {{ power }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Hero Birthday</mat-label>
+          <input matInput [matDatepicker]="picker" formControlName="birthday" />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="picker"
+          ></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+        <button type="submit" mat-button>Save</button>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>

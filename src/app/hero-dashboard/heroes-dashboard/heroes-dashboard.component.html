@@ -1,0 +1,24 @@
+<app-spinner *ngIf="loading"></app-spinner>
+<section *ngIf="!loading" class="hero-cart">
+  <mat-card *ngFor="let hero of heroes">
+    <mat-card-header>
+      <mat-card-title>{{ hero.name }}</mat-card-title>
+      <img
+        [imgSrc]
+        [power]="hero.power"
+        style="width: 50px"
+        mat-card-image
+        alt="Photo of a Shiba Inu"
+      />
+    </mat-card-header>
+
+    <mat-card-actions>
+      <a
+        mat-raised-button
+        color="accent"
+        routerLink="/hero-detail/{{ hero.id }}"
+        >Details</a
+      >
+    </mat-card-actions>
+  </mat-card>
+</section>

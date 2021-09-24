@@ -1,0 +1,35 @@
+@import "../../shared/shared.scss";
+
+section {
+  @include flex-center;
+
+  div.container {
+    @include flex-center;
+    flex-direction: column;
+    margin-top: 100px;
+    box-shadow: 1px 1px 4px #00000052;
+    text-align: center;
+    width: 400px;
+    height: 200px;
+  }
+
+  button {
+    background-color: $secondary-color;
+    border: none;
+    color: white;
+    padding: 10px 24px;
+    text-align: center;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 14px;
+    margin: 4px 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+
+    &:focus {
+      box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2),
+        0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+  }
+}
